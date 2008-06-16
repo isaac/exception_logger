@@ -1,4 +1,4 @@
-class LoggedExceptionsController < ActionController::Base
+class LoggedExceptionsController < Admin::BaseController
   cattr_accessor :application_name
   layout nil
 
@@ -53,6 +53,11 @@ class LoggedExceptionsController < ActionController::Base
     LoggedException.delete_all ['id in (?)', params[:ids]] unless params[:ids].blank?
     query
   end
+
+  protected
+    def authorized?
+      logged_in? && global_admin?
+    end
 
   private
     def access_denied_with_basic_auth

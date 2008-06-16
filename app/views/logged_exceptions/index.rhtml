@@ -4,11 +4,8 @@
   <title>Logged Exceptions</title>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <%= javascript_include_tag 'prototype','effects' %>
-  <script type="text/javascript">
-<%= IO.read(File.join(RAILS_ROOT, 'vendor/plugins/exception_logger/assets/exception_logger.js')) %>
-  </script>
-  <style type="text/css">
-<%= IO.read(File.join(RAILS_ROOT, 'vendor/plugins/exception_logger/assets/style.css')) %>
+  <%= javascript_include_tag 'exception_logger', :plugin => 'exception_logger' %>
+  <%= stylesheet_link_tag 'style', :plugin => 'exception_logger' %>
   </style>
 </head>
 <body>
